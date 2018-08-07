@@ -150,12 +150,6 @@
                 </ul>
               </li>
               <li>
-                <pre>q</pre>
-                <ul>
-                  <li>Search query</li>
-                </ul>
-              </li>
-              <li>
                 <pre>sort</pre>
                 <ul>
                   <li><code>+</code> for acending order (default order); <code>-</code> for decending order</li>
@@ -173,10 +167,8 @@
             <pre class="mb-5"><code class="http"><a href="https://api.openbrewerydb.org/breweries?by_name=cooper&by_state=NY">https://api.openbrewerydb.org/breweries?by_name=cooper&by_state=NY</a></code></pre>
             <div class="mb-5">Filter breweries by state and sort by type then by name in decending order:</div>
             <pre class="mb-5"><code class="http"><a href="https://api.openbrewerydb.org/breweries?by_state=oh&sort=type,-name">https://api.openbrewerydb.org/breweries?by_state=oh&sort=type,-name</a></code></pre>
-            <div class="mb-5">Search:</div>
-            <pre class="mb-5"><code class="http"><a href="https://api.openbrewerydb.org/breweries?q=san%20diego">https://api.openbrewerydb.org/breweries?q=san%20diego</a></code></pre>
-            <div class="mb-5">Pagination & Limit (default limit is 20; max limit is 50):</div>
-            <pre class="mb-5"><code class="http"><a href="https://api.openbrewerydb.org/breweries?page=2&limit=30">https://api.openbrewerydb.org/breweries?page=2&limit=30</a></code></pre>
+            <div class="mb-5">Pagination & Per Page (default per page is 20; max per page is 50):</div>
+            <pre class="mb-5"><code class="http"><a href="https://api.openbrewerydb.org/breweries?page=2&per_page=30">https://api.openbrewerydb.org/breweries?page=2&per_page=30</a></code></pre>
           </div>
         </div>
 
@@ -197,8 +189,78 @@
   website_url: "http://www.madtreebrewing.com",
   updated_at: "2018-07-24T01:34:01.620Z"
 }</code></pre>
-            </div>
           </div>
+        </div>
+
+        <div class="mb-5">
+          <h4 class="mb-5">Autocomplete:</h4>
+          <pre class="mb-5"><code class="http"><a href="https://api.openbrewerydb.org/breweries/autocomplete?query=dog" target="_blank">https://api.openbrewerydb.org/breweries/autocomplete?query=dog</a></code></pre>
+          <div class="mb-5">JSON:</div>
+          <div class="mb-5">
+            <pre><code class="javascript">[
+  {
+    id: "4263",
+    name: "Lead Dog Brewing"
+  },
+  {
+    id: "5359",
+    name: "Boss Dog Brewing"
+  },
+  {
+    id: "5925",
+    name: "Running Dogs Brewery"
+  },
+  ...
+]</code></pre>
+          </div>
+
+          <div class="mb-5">
+            <h5 class="mb-5">Parameter:</h5>
+            <ul>
+              <li>
+                <pre>query</pre>
+                <ul>
+                  <li>Case-insensitive</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4 class="mb-5">Search:</h4>
+          <pre class="mb-5"><code class="http"><a href="https://api.openbrewerydb.org/breweries/search?query=dog" target="_blank">https://api.openbrewerydb.org/breweries/search?query=dog</a></code></pre>
+          <div class="mb-5">JSON:</div>
+          <div class="mb-5">
+            <pre><code class="javascript">[
+  {
+    id: 4263,
+    name: "Lead Dog Brewing",
+    brewery_type: "micro",
+    address: "415 E 4th St",
+    city: "Reno",
+    state: "NV",
+    postal_code: "89512-3315",
+    phone: "7753915110",
+    website_url: "http://www.leaddogbrewing.com",
+    updated_at: "2018-07-25T02:13:52.688Z"
+  },
+  ...
+]</code></pre>
+          </div>
+
+          <div class="mb-5">
+            <h5 class="mb-5">Parameter:</h5>
+            <ul>
+              <li>
+                <pre>query</pre>
+                <ul>
+                  <li>Case-insensitive</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="mb-10">
